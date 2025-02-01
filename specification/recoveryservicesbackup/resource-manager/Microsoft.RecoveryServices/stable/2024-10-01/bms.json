@@ -5773,7 +5773,16 @@
         },
         "policyType": {
           "description": "Type of the policy used for protection",
+          "enum": [
+            "Invalid",
+            "V1",
+            "V2"
+          ],
           "type": "string",
+          "x-ms-enum": {
+            "name": "IAASVMPolicyType",
+            "modelAsString": true
+          },
           "readOnly": true
         }
       },
