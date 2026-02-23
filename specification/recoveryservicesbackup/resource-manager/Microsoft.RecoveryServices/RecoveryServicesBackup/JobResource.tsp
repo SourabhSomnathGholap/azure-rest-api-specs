@@ -1,12 +1,14 @@
 import "@azure-tools/typespec-azure-core";
 import "@azure-tools/typespec-azure-resource-manager";
 import "@typespec/rest";
+import "@typespec/versioning";
 import "./models.tsp";
 
 using TypeSpec.Rest;
 using Azure.ResourceManager;
 using Azure.ResourceManager.Legacy;
 using TypeSpec.Http;
+using TypeSpec.Versioning;
 
 namespace Microsoft.RecoveryServices;
 /**
@@ -72,6 +74,48 @@ interface JobCancellations {
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-post-operation-response-codes" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @action("cancel")
   trigger is ArmResourceActionSync<JobResource, void, AcceptedResponse>;
+}
+
+@armResourceOperations
+@added(Versions.v2026_03_01)
+interface BackupChildJobs {
+  /**
+   * Lists child jobs of a parent job. This is useful for jobs like BulkRestore where each restore operation for an individual VM is tracked as a child job.
+   */
+  @list
+  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}/backupChildJobs")
+  list(
+    ...ApiVersionParameter,
+    ...SubscriptionIdParameter,
+    ...ResourceGroupParameter,
+
+    /**
+     * The name of the recovery services vault.
+     */
+    @maxLength(50)
+    @minLength(2)
+    @pattern("^[A-Za-z][-A-Za-z0-9]*[A-Za-z0-9]$")
+    @path
+    vaultName: string,
+
+    /**
+     * Name of the parent job whose child jobs are to be fetched.
+     */
+    @path
+    jobName: string,
+
+    /**
+     * OData filter options.
+     */
+    @query("$filter")
+    $filter?: string,
+
+    /**
+     * skipToken Filter.
+     */
+    @query("$skipToken")
+    $skipToken?: string,
+  ): ArmResponse<JobResourceList> | ErrorResponse;
 }
 
 @armResourceOperations
