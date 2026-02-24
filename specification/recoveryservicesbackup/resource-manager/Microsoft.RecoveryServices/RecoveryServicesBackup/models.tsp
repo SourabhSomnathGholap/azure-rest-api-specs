@@ -8415,6 +8415,19 @@ model OperationStatusValidateOperationExtendedInfo
 }
 
 /**
+ * Bulk restore validation response containing validation results grouped by error category.
+ */
+@added(Versions.v2026_03_01)
+model BulkRestoreValidationResponse {
+  /**
+   * Validation results grouped by error category. Each key is an error category (e.g., "CommonParameterValidationErrors"),
+   * and each value is an array of ErrorDetail objects containing validation errors for that category.
+   */
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "Dictionary response for validation results grouped by category"
+  validationResults?: Record<ErrorDetail[]>;
+}
+
+/**
  * Operation status extended info for bulk restore validation.
  */
 @added(Versions.v2026_03_01)
@@ -8423,8 +8436,7 @@ model OperationStatusValidateBulkRestoreExtendedInfo
   /**
    * Gets the bulk restore validation operation response
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "Response model for bulk validation"
-  bulkRestoreValidationResponse?: Record<string>;
+  bulkRestoreValidationResponse?: BulkRestoreValidationResponse;
 
   /**
    * This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.

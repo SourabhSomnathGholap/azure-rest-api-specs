@@ -2967,6 +2967,9 @@
         "x-ms-examples": {
           "Get Status of PreCheck Restore Validation Operation": {
             "$ref": "./examples/AzureIaasVm/PreCheckRestore_OperationsStatus.json"
+          },
+          "Get Status of PreCheck Restore Validation Operation - Per Item Validation": {
+            "$ref": "./examples/AzureIaasVm/PreCheckRestore_OperationsStatus_PerItem.json"
           }
         }
       }
@@ -8959,6 +8962,22 @@
         }
       }
     },
+    "BulkRestoreValidationResponse": {
+      "type": "object",
+      "description": "Bulk restore validation response containing validation results grouped by error category.",
+      "properties": {
+        "validationResults": {
+          "type": "object",
+          "description": "Validation results grouped by error category. Each key is an error category (e.g., \"CommonParameterValidationErrors\"),\nand each value is an array of ErrorDetail objects containing validation errors for that category.",
+          "additionalProperties": {
+            "items": {
+              "$ref": "#/definitions/ErrorDetail"
+            },
+            "type": "array"
+          }
+        }
+      }
+    },
     "ClientDiscoveryDisplay": {
       "type": "object",
       "description": "Localized display information of an operation.",
@@ -12356,11 +12375,8 @@
       "description": "Operation status extended info for bulk restore validation.",
       "properties": {
         "bulkRestoreValidationResponse": {
-          "type": "object",
-          "description": "Gets the bulk restore validation operation response",
-          "additionalProperties": {
-            "type": "string"
-          }
+          "$ref": "#/definitions/BulkRestoreValidationResponse",
+          "description": "Gets the bulk restore validation operation response"
         }
       },
       "allOf": [

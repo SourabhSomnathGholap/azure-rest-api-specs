@@ -14,11 +14,13 @@
         "region": "eastus",
         "protectedItemRestoreDetails": [
           {
+            "objectType": "IAASVMProtectedItemRestoreDetails",
             "recoveryPointId": "348916168024334",
             "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRg/providers/Microsoft.Compute/virtualMachines/testvm1",
             "protectedItemId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/IaasVMContainer;iaasvmcontainerv2;testRg;testvm1/protectedItems/VM;iaasvmcontainerv2;testRg;testvm1"
           },
           {
+            "objectType": "IAASVMProtectedItemRestoreDetails",
             "recoveryPointId": "348916168024335",
             "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRg/providers/Microsoft.Compute/virtualMachines/testvm2",
             "protectedItemId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/IaasVMContainer;iaasvmcontainerv2;testRg;testvm2/protectedItems/VM;iaasvmcontainerv2;testRg;testvm2"

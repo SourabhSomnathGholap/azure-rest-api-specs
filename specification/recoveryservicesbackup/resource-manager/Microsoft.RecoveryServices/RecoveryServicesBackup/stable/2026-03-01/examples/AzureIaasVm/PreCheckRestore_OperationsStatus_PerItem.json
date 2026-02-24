@@ -1,0 +1,49 @@
+{
+  "parameters": {
+    "api-version": "2026-03-01",
+    "fabricName": "Azure",
+    "operationId": "ea68d640-de3e-4c31-a172-b0a8e899f93c",
+    "resourceGroupName": "sgholap-rg",
+    "subscriptionId": "c712044f-6be9-4f28-b7fe-590c11a65cca",
+    "vaultName": "sghoalppbrsv"
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "id": "ea68d640-de3e-4c31-a172-b0a8e899f93c",
+        "name": "ea68d640-de3e-4c31-a172-b0a8e899f93c",
+        "status": "Succeeded",
+        "startTime": "2026-02-24T16:59:53.2020336Z",
+        "endTime": "2026-02-24T17:00:04.0754796Z",
+        "properties": {
+          "objectType": "OperationStatusValidateBulkRestoreExtendedInfo",
+          "bulkRestoreValidationResponse": {
+            "validationResults": {
+              "/subscriptions/c712044f-6be9-4f28-b7fe-590c11a65cca/resourceGroups/sgholap-rg/providers/Microsoft.RecoveryServices/vaults/sghoalppbrsv/backupFabrics/Azure/protectionContainers/IaasVMContainer;iaasvmcontainerv2;sgholap-rg;sgholapbulkvm1/protectedItems/VM;iaasvmcontainerv2;sgholap-rg;sgholapbulkvm1": [
+                {
+                  "code": "UserErrorVmAlreadyExistWithSameName",
+                  "message": "A VM with the same name already exists in the same Resource Group.",
+                  "recommendations": [
+                    "Please retry the operation with a different VM name."
+                  ]
+                }
+              ],
+              "/subscriptions/c712044f-6be9-4f28-b7fe-590c11a65cca/resourceGroups/sgholap-rg/providers/Microsoft.RecoveryServices/vaults/sghoalppbrsv/backupFabrics/Azure/protectionContainers/IaasVMContainer;iaasvmcontainerv2;sgholap-rg;sgholapbulkvm2/protectedItems/VM;iaasvmcontainerv2;sgholap-rg;sgholapbulkvm2": [
+                {
+                  "code": "UserErrorVmAlreadyExistWithSameName",
+                  "message": "A VM with the same name already exists in the same Resource Group.",
+                  "recommendations": [
+                    "Please retry the operation with a different VM name."
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "operationId": "ValidateBulkRestoreOperationsStatus_Get",
+  "title": "Get Status of PreCheck Restore Validation Operation - Per Item Validation",
+  "description": "Gets the status and validation results grouped by protected item ID. This example shows validation errors for individual protected items where each key is a protected item resource path and the value is an array of validation errors for that specific item."
+}
