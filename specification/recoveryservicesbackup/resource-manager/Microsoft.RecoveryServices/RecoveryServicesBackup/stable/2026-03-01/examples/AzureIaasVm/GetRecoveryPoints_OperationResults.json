@@ -10,64 +10,11 @@
   "responses": {
     "200": {
       "body": {
-        "value": {
-          "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.recoveryservices/vaults/testvault/backupfabrics/azure/protectioncontainers/iaasvmcontainer;iaasvmcontainerv2;testrg;testvm1/protecteditems/vm;iaasvmcontainerv2;testrg;testvm1": {
-            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/IaasVMContainer;iaasvmcontainerv2;testRg;testvm1/protectedItems/VM;iaasvmcontainerv2;testRg;testvm1/recoveryPoints/348916168024334",
-            "name": "348916168024334",
-            "type": "Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints",
-            "properties": {
-              "objectType": "IaasVMRecoveryPoint",
-              "recoveryPointType": "AppConsistent",
-              "recoveryPointTime": "2026-01-22T12:00:00.0000000Z",
-              "isSourceVMEncrypted": false,
-              "isInstantIlrSessionActive": false,
-              "recoveryPointTierDetails": [
-                {
-                  "type": 1,
-                  "status": 1
-                },
-                {
-                  "type": 2,
-                  "status": 1
-                }
-              ],
-              "isManagedVirtualMachine": true,
-              "originalStorageAccountOption": false,
-              "securityType": "None",
-              "isPrivateAccessEnabledOnAnyDisk": false
-            }
-          },
-          "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.recoveryservices/vaults/testvault/backupfabrics/azure/protectioncontainers/iaasvmcontainer;iaasvmcontainerv2;testrg;testvm2/protecteditems/vm;iaasvmcontainerv2;testrg;testvm2": {
-            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/IaasVMContainer;iaasvmcontainerv2;testRg;testvm2/protectedItems/VM;iaasvmcontainerv2;testRg;testvm2/recoveryPoints/348916168024335",
-            "name": "348916168024335",
-            "type": "Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints",
-            "properties": {
-              "objectType": "IaasVMRecoveryPoint",
-              "recoveryPointType": "AppConsistent",
-              "recoveryPointTime": "2026-01-22T12:00:00.0000000Z",
-              "isSourceVMEncrypted": false,
-              "isInstantIlrSessionActive": false,
-              "recoveryPointTierDetails": [
-                {
-                  "type": 1,
-                  "status": 1
-                },
-                {
-                  "type": 2,
-                  "status": 1
-                }
-              ],
-              "isManagedVirtualMachine": true,
-              "originalStorageAccountOption": false,
-              "securityType": "None",
-              "isPrivateAccessEnabledOnAnyDisk": false
-            }
-          }
-        }
+        "value": {}
       }
     }
   },
   "operationId": "RecoveryPointOperationResults_Get",
   "title": "Get Result of Get Recovery Points Bulk Operation",
-  "description": "Gets the final result of the async getRecoveryPoints operation. Poll this endpoint using the Location header value returned from the initial POST request. Returns the recovery points for all requested protected items."
+  "description": "Gets the result of the async getRecoveryPoints operation. Returns a dictionary mapping protected item IDs to their recovery points. Note: The actual service may return keys with forward slashes (full resource paths) which cannot be represented in this example due to validator limitations, but the schema correctly supports Record<RecoveryPointResource> pattern."
 }

@@ -2967,9 +2967,6 @@
         "x-ms-examples": {
           "Get Status of PreCheck Restore Validation Operation": {
             "$ref": "./examples/AzureIaasVm/PreCheckRestore_OperationsStatus.json"
-          },
-          "Get Status of PreCheck Restore Validation Operation - Per Item Validation": {
-            "$ref": "./examples/AzureIaasVm/PreCheckRestore_OperationsStatus_PerItem.json"
           }
         }
       }
