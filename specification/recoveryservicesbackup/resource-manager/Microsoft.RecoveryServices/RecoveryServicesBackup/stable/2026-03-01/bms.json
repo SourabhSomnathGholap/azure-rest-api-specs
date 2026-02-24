@@ -121,9 +121,6 @@
       "name": "JobCancellations"
     },
     {
-      "name": "BackupChildJobs"
-    },
-    {
       "name": "JobOperationResults"
     },
     {
@@ -155,6 +152,9 @@
     },
     {
       "name": "Jobs"
+    },
+    {
+      "name": "BackupChildJobs"
     },
     {
       "name": "BackupProtectedItems"
@@ -3093,7 +3093,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}/backupChildJobs/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/{vaultName}/{jobName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}/backupChildJobs": {
       "get": {
         "operationId": "BackupChildJobs_List",
         "tags": [
@@ -3160,9 +3160,6 @@
           "List Child Jobs for a Parent Job": {
             "$ref": "./examples/Common/ListBackupChildJobs.json"
           }
-        },
-        "x-ms-pageable": {
-          "nextLinkName": "nextLink"
         }
       }
     },
